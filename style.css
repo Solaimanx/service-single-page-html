@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
 }
+
 /*------Navigation------*/
 #nav-bar {
   position: sticky;
@@ -34,11 +35,29 @@
   font-size: 16px;
 }
 
+/* slider */
+
+#slider {
+  width: 100%;
+}
+
+.carousel-caption {
+  top: 50%;
+  transform: translateY(-50%);
+  bottom: initial !important;
+}
+
+.carousel-caption h5 {
+  color: #fff;
+  font-size: 42px;
+}
+
 /*----------about----------*/
 #about {
-  padding-top: 55px;
-  padding-bottom: 55px;
+  padding-top: 110px;
+  padding-bottom: 110px;
   color: #555;
+  margin-top: -50px;
 }
 #about .btn {
   margin-top: 20px;
@@ -67,8 +86,9 @@
   background-position: center;
   color: #efefef !important;
   background-attachment: fixed;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 105px;
+  padding-bottom: 105px;
+  margin-top: -50px;
 }
 #services h1 {
   text-align: center;
@@ -114,6 +134,9 @@
 
 #price {
   padding: 40px 0;
+  padding-top: 105px;
+  padding-bottom: 105px;
+  margin-top: -40px;
   background: #efefef;
 }
 
@@ -223,8 +246,9 @@ a {
 /* testimoinals */
 
 #testimonials {
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 105px;
+  padding-bottom: 105px;
+  margin-top: -40px;
 }
 
 #testimonials .row {
