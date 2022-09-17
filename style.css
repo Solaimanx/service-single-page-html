@@ -37,6 +37,11 @@
 
 /* slider */
 
+#carouselExampleIndicators {
+  padding-top: 110px;
+  margin-top: -110px;
+}
+
 #slider {
   width: 100%;
 }
@@ -369,4 +374,21 @@ blockquote .fa {
 .fa-heart-o {
   margin: 3px;
   color: red;
+}
+
+/* mobile responsive  */
+
+@media screen and (max-width: 768px) {
+  .carousel-inner {
+    height: 350px;
+  }
+
+  .carousel-inner img {
+    height: 350px;
+    object-fit: cover;
+  }
+
+  .carousel-caption {
+    font-size: 29px !important;
+  }
 }
