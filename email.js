@@ -5,7 +5,7 @@ sgMail.setApiKey(apitoken);
 
 const sendEmail = async (name, number, email, message) => {
   const msg = {
-    to: "solaiman321@gmail.com",
+    to: "khownotary@gmail.com",
     from: "khownotary@gmail.com",
     subject: `${name} - Message from knowhownotary.com`,
     html: `
