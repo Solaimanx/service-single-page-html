@@ -344,7 +344,8 @@
             </div>
           </div>
         </div>
-      </div>
+      </div>'
+      '
     </section>
 
 <!-- Get in touch  -->
@@ -356,37 +357,32 @@
 
     <div class="row">
       <div class="col-md-6">
-        <form action="" class="contact-form">
+        <form action="javascript:sendEmail()" class="contact-form">
           <div class="form-group">
-            <input type="text" placeholder="Your name" class="form-control"></input>
+            <input type="text" placeholder="Your name" class="form-control"  id="name" ></input>
           </div>
           <div class="form-group">
-            <input type="number" class="form-control" placeholder="Phone no"></input>
+            <input type="number" class="form-control" placeholder="Phone no" id="number" ></input>
           </div>
           <div class="form-group">
-            <input type="email" class="form-control" placeholder="Your Email"></input>
+            <input type="email" class="form-control" placeholder="Your Email"  id="email"></input>
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Your Email"></input>
+            <textarea  class="form-control" placeholder="Message" rows="4" id="message" ></textarea>
           </div>
-          <div class="form-group">
-            <textarea  class="form-control" placeholder="Message" rows="4"></textarea>
-          </div>
-
-
           <button type="submit" class="btn btn-primary" >SEND MESSAGE</button>
         </form>
       </div>
       <div class="col-md-6 contact-info">
         <div class="follow">
-          <b>Address:</b> <i class="fa fa-map-marker"></i>  XYZ Road Bangalore , IN
+          <b>Address:</b> <i class="fa fa-map-marker"></i>  3834 Cosby st Houston Tx 77021
       </div>
       <div class="follow">
-        <b>Phone:</b>   <i class="fa fa-phone"></i> +1 12356465465
+        <b>Phone:</b>   <i class="fa fa-phone"></i> +1 7135161789
       </div>
       
       <div class="follow">
-        <b>Email:</b>  <i class="fa fa-envelope-o"></i> example@website.com
+        <b>Email:</b>  <i class="fa fa-envelope-o"></i> khownotary@gmail.com
       </div>
       
       <div class="follow">
@@ -394,10 +390,10 @@
           <b>Get Social:</b> 
         </label>
 
-        <a href="#"> <i class="fa fa-facebook"></i></a>
-        <a href="#"> <i class="fa fa-youtube-play"></i></a>
+        <a href="https://www.instagram.com/knowhownotary"> <i class="fa fa-instagram"></i></a>
+        <!-- <a href="#"> <i class="fa fa-youtube-play"></i></a>
         <a href="#"> <i class="fa fa-twitter"></i></a>
-        <a href="#"> <i class="fa fa-google-plus"></i></a>
+        <a href="#"> <i class="fa fa-google-plus"></i></a> -->
 
       </div>
       
@@ -442,6 +438,39 @@ navButton.addEventListener('click',()=>{
 
 
 })
+
+
+// send email function 
+
+async function sendEmail(e){
+  try{
+    const name = document.getElementById('name').value
+    const number = document.getElementById('number').value
+    const email = document.getElementById('email').value
+    const message = document.getElementById('message').value
+
+    
+    const res = await fetch('http:localhost:4000/email',{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json'
+      },
+      body:JSON.stringify({name,number,email,message})
+    })
+
+    console.log(res)
+    
+  }catch(error){
+    console.log(error)
+    // alert('something went wrong')
+  }
+
+
+
+
+
+
+} 
 
   
 </script>
