@@ -370,7 +370,7 @@
           <div class="form-group">
             <textarea  class="form-control" placeholder="Message" rows="4" id="message" ></textarea>
           </div>
-          <button type="submit" class="btn btn-primary" >SEND MESSAGE</button>
+          <button type="submit" class="btn btn-primary" id="messageButton" >SEND MESSAGE</button>
         </form>
       </div>
       <div class="col-md-6 contact-info">
@@ -440,6 +440,7 @@ navButton.addEventListener('click',()=>{
 })
 
 
+
 // send email function 
 
 async function sendEmail(e){
@@ -448,9 +449,10 @@ async function sendEmail(e){
     const number = document.getElementById('number').value
     const email = document.getElementById('email').value
     const message = document.getElementById('message').value
+    const messageButton = document.getElementById('messageButton')
 
     
-    const res = await fetch('http:localhost:4000/email',{
+    const res = await fetch('https://knowhowontary-backend.vercel.app/email',{
       method:'POST',
       headers:{
         'Content-Type':'application/json'
@@ -459,7 +461,7 @@ async function sendEmail(e){
     })
 
     console.log(res)
-    
+    messageButton.innerHTML ='MESSAGE SENT'
   }catch(error){
     console.log(error)
     // alert('something went wrong')

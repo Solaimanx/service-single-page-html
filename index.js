@@ -9,7 +9,7 @@ const bodyParser = require("body-parser");
 const app = express();
 
 var corsOptions = {
-  origin: "*",
+  origin: ["http://knowhownotary.com", "http://127.0.0.1:5500"],
   methods: ["GET", "PUT", "POST", "DELETE", "OPTIONS"],
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
   credentials: true, //Credentials are cookies, authorization headers or TLS client certificates.
@@ -25,23 +25,27 @@ var corsOptions = {
 };
 
 const port = process.env.PORT || "4000";
-const email = require("./email");
+const { sendEmail } = require("./email");
 
 app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.json())
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("working");
 });
 
-app.post("/email", (req, res) => {
-  console.log(req.body);
+app.post("/email", async (req, res) => {
+  const { name, number, email, message } = req.body;
 
-  // email.sendEmail()
+  const result = await sendEmail(name, number, email, message);
 
-  res.send('success')
+  if (result == "error") {
+    return res.status(400).send("failed to send email");
+  }
+
+  res.send("success");
 });
 
 app.listen(port, () => {
