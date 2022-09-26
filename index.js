@@ -9,7 +9,7 @@ const bodyParser = require("body-parser");
 const app = express();
 
 var corsOptions = {
-  origin: ["http://knowhownotary.com", "http://127.0.0.1:5500"],
+  origin: ["https://knowhownotary.com", "http://127.0.0.1:5500"],
   methods: ["GET", "PUT", "POST", "DELETE", "OPTIONS"],
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
   credentials: true, //Credentials are cookies, authorization headers or TLS client certificates.
